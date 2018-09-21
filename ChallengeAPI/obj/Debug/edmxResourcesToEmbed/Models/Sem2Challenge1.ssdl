@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Sem2Challenge1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Modules">
+    <Key>
+      <PropertyRef Name="macAddress" />
+    </Key>
+    <Property Name="macAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dateAssigned" Type="date" />
+    <Property Name="studentAssigned" Type="nvarchar" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="studentID" />
+    </Key>
+    <Property Name="studentID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_STUDENT_MODULES">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentID" />
+      </Principal>
+      <Dependent Role="Modules">
+        <PropertyRef Name="studentAssigned" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Sem2Challenge1ModelStoreContainer">
+    <EntitySet Name="Modules" EntityType="Self.Modules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_STUDENT_MODULES" Association="Self.FK_STUDENT_MODULES">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Modules" EntitySet="Modules" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Sem2Challenge1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Module">
+    <Key>
+      <PropertyRef Name="macAddress" />
+    </Key>
+    <Property Name="macAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dateAssigned" Type="DateTime" Precision="0" />
+    <Property Name="studentAssigned" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_STUDENT_MODULES" FromRole="Modules" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="studentID" />
+    </Key>
+    <Property Name="studentID" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="firstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Modules" Relationship="Self.FK_STUDENT_MODULES" FromRole="Student" ToRole="Modules" />
+  </EntityType>
+  <Association Name="FK_STUDENT_MODULES">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="Modules" Type="Self.Module" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentID" />
+      </Principal>
+      <Dependent Role="Modules">
+        <PropertyRef Name="studentAssigned" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Sem2Challenge1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Modules" EntityType="Self.Module" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <AssociationSet Name="FK_STUDENT_MODULES" Association="Self.FK_STUDENT_MODULES">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Modules" EntitySet="Modules" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,34 @@
+﻿@model ChallengeAPI.Models.Module
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Module</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dateAssigned)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateAssigned)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.firstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.macAddress }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Sem2Challenge1ModelStoreContainer" CdmEntityContainer="Sem2Challenge1Entities">
+    <EntitySetMapping Name="Modules">
+      <EntityTypeMapping TypeName="Sem2Challenge1Model.Module">
+        <MappingFragment StoreEntitySet="Modules">
+          <ScalarProperty Name="macAddress" ColumnName="macAddress" />
+          <ScalarProperty Name="dateAssigned" ColumnName="dateAssigned" />
+          <ScalarProperty Name="studentAssigned" ColumnName="studentAssigned" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="Sem2Challenge1Model.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="studentID" ColumnName="studentID" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Student]
+(
+	[studentID] NVARCHAR(12) NOT NULL,
+	[firstName] NVARCHAR(20) NOT NULL,
+	[lastName] NVARCHAR(20) NOT NULL,
+	CONSTRAINT PK_STUDENT PRIMARY KEY (studentID)
+)

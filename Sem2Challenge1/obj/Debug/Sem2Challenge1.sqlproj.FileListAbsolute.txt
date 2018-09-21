@@ -1,0 +1,6 @@
+C:\Users\ishmyles\Desktop\Sem2Challenge1\Sem2Challenge1\bin\Debug\Sem2Challenge1.dacpac
+C:\Users\ishmyles\Desktop\Sem2Challenge1\Sem2Challenge1\obj\Debug\Sem2Challenge1.sqlprojAssemblyReference.cache
+C:\Users\ishmyles\Desktop\Sem2Challenge1\Sem2Challenge1\obj\Debug\Sem2Challenge1.dll
+C:\Users\ishmyles\Desktop\Sem2Challenge1\Sem2Challenge1\obj\Debug\Sem2Challenge1.pdb
+C:\Users\ishmyles\Desktop\Sem2Challenge1\Sem2Challenge1\bin\Debug\Sem2Challenge1.dll
+C:\Users\ishmyles\Desktop\Sem2Challenge1\Sem2Challenge1\bin\Debug\Sem2Challenge1.pdb
